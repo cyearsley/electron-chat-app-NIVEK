@@ -1,0 +1,65 @@
+* {
+    padding: 0;
+    margin: 0;
+    font-family: "Segoe UI", "Lucida Grande", Ubuntu, Cantarell, Arial, sans-serif;
+}
+
+.nav-button {
+    color: white;
+    margin: auto;
+    width: 50px;
+    height: 50px;
+    margin-top: 50px;
+    cursor: pointer;
+}
+
+.nav-button:hover {
+    color: #a3a3a3;
+}
+
+.nav-button:active {
+    color: #fff482;
+    width: 55px;
+}
+
+#top-nav {
+    position: fixed;
+    left: 100px;
+    top: 0;
+    right: 0;
+    height: 75px;
+    /*background-color: #a3a3a3;*/
+    background: linear-gradient(to right, #000b1e, white);
+}
+
+#left-nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 100px;
+    background-color: #000b1e;
+}
+
+#main-container {
+    position: absolute;
+    top: 50px;
+    left: 100px;
+    right: 0;
+    padding: 50px;
+    /*background-color: green;*/
+}
+
+#chat-container {
+    width: 700px;
+    height: 500px;
+    border: solid #858585 1px;
+    margin-top: 25px;
+}
+
+#chat-message-container {
+    width: 700px;
+    height: 50px;
+    border-radius: 15px;
+    border: solid #858585 1px;
+}

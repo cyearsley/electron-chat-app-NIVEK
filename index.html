@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>The Chat App</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="./style/main.css" rel="stylesheet"></link>
+  </head>
+  <body>
+    <div id="left-nav">
+      <div class="nav-button" id="home"><i class="navbutton fa fa-home fa-3x" aria-hidden="true"></i></div>
+      <div class="nav-button" id="chat"><i class="navbutton fa fa-weixin fa-3x" aria-hidden="true"></i></div>
+      <div class="nav-button" id="settings"><i class="navbutton fa fa-cogs fa-3x" aria-hidden="true"></i></div>
+    </div>
+    
+    <div id="top-nav">
+
+    </div>
+    
+    <div id="main-container">
+      
+    </div>
+  </body>
+  <script>
+    // You can also require other files to run in this process
+    $ = jQuery = require('jquery');
+    require('./renderer.js');
+    require('./js/client.js');
+  </script>
+</html>
