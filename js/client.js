@@ -1,4 +1,3 @@
-console.log("IN CLIENT");
 $('#home').on('click', function () {
     app.emit('view-selected', 'home');
     $('#settings').css('color', 'white');
@@ -25,5 +24,14 @@ app.on('rendered', function (html) {
 $(function () {
     app.emit('view-selected', 'home');
     $('#home').css('color', '#6062b2');
+    socket.emit('join room', {roomName: 'lobby'});
+
+    socket.on('receive my room', function (msg) {
+        $('#current-room').html('Current Room: "<b>' + msg.room + '</b>"');
+    });
 });
 
+joinChatOnClick = function () {
+    socket.emit('join room', {roomName: $('#room-input').val()});
+    $('#room-input').val('');
+}

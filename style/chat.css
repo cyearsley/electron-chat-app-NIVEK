@@ -1,0 +1,19 @@
+#send-button {
+    float:left;
+    background-color: rgba(0, 0, 255, 0.5);
+    height:50px;
+    border-top-left-radius: 15px;
+    border-bottom-left-radius: 15px;
+    width:7%;
+}
+
+#chat-input {
+    float:right;
+    width: 92%;
+    height: 50px;
+    border: none;
+    margin-right:1%;
+    border-top-right-radius: 15px;
+    border-bottom-right-radius: 15px;
+    font-size: 20px;
+}
