@@ -31,7 +31,7 @@ $(function () {
     });
 });
 
-joinChatOnClick = function () {
-    socket.emit('join room', {roomName: $('#room-input').val()});
-    $('#room-input').val('');
-}
+// joinChatOnClick = function () {
+//     socket.emit('join room', {roomName: $('#room-input').val()});
+//     $('#room-input').val('');
+// }

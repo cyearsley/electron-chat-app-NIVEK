@@ -1,2 +1,27 @@
 <h1>Settings</h1>
 <p>Change your settings here!</p>
+<br />
+<br />
+<br />
+<h3>User name: </h3><input type="text" id="user-name" style="width: 300px;">
+<br />
+<button id="submit-username">Save Username</button>
+
+<script>
+    $(function () {
+        socket.emit('get username');
+
+        if (typeof socket._callbacks['$receive username'] === 'undefined') {
+            socket.on('receive username', function (msg) {
+                $('#user-name').val(msg.username);
+            })
+        }
+
+        $('#submit-username').on('click', function () {
+            let inputVal = $('#user-name').val();
+            if (inputVal) {
+                socket.emit('change username', {username: inputVal});
+            }
+        });
+    });
+</script>

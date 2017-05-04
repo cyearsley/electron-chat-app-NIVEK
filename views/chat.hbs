@@ -5,7 +5,7 @@
 <h3>Join Chat:</h3>
 <input type="text" id="room-input" style="width: 250px; height: 30px; font-size: 20px;"><span id="current-room" style="margin-left: 50px; font-size: 20px;">Current Room: NONE</span>
 <br />
-<button id="join-button" onclick="joinChatOnClick();">JOIN</button>
+<button id="join-button">JOIN</button>
 <div id="chat-container"></div>
 <div id="chat-message-container">
     <div id="send-button"><i class="fa fa-paper-plane-o fa-3x" aria-hidden="true"></i></div>
@@ -14,7 +14,33 @@
 
 <script>
     $(function () {
-        // console.log("Chat read!");
         socket.emit('request my room');
+        socket.emit('get chat history');
+
+        $('#join-button').on('click', function () {
+            socket.emit('join room', {roomName: $('#room-input').val()});
+            $('#room-input').val('');
+            socket.emit('get chat history');
+            $('#chat-container').html('');
+        });
+
+        $('#send-button').on('click', function () {
+            socket.emit('send message', {msg: $('#chat-input').val()});
+            $('#chat-input').val('');
+        });
+
+        if (typeof socket._callbacks['$broadcast message'] === 'undefined') {
+            socket.on('broadcast message', function (msg) {
+                $('#chat-container').append('<b>' + msg.user + '</b>: ' + msg.msg + '<br />');
+            });
+        }
+
+        if (typeof socket._callbacks['$receive chat history'] === 'undefined') {
+            socket.on('receive chat history', function (msg) {
+                for (let ii = 0; ii < msg.chat.length; ii += 1) {
+                    $('#chat-container').append(msg.chat[ii]);
+                }
+            });
+        }
     });
 </script>
